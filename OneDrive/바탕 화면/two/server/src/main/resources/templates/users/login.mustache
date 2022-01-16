@@ -1,0 +1,24 @@
+{{>layouts/header}}
+<h1>Welcome to</h1>
+<br>
+<h1>Gongder Login-App</h1>
+<!--alert msg : 삭제되었을 때 뜨는 알림창(부트스트랩 사용)-->
+{{#msg}}
+    <div class="alert alert-primary alert-dismissible">
+        {{msg}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{{/msg}}
+    <div class="mb-3">
+        <label class="form-label">아이디</label>
+        <input type="text" class="form-control" name="username">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">비밀번호</label>
+        <input type="password" class="form-control" rows="3" name="password">
+    </div>
+    <!--로그인 부분 구현x 중복확인, 비번일치확인 불가능-->
+    <button type="submit" class="btn btn-primary">로그인</button>
+    <br>
+    <a href="/home" class="btn btn-primary">회원가입</a>
+{{>layouts/footer}}

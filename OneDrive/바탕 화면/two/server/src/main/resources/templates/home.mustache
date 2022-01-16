@@ -1,0 +1,32 @@
+{{>layouts/header}}
+<!--회원가입 페이지-->
+<form class="container" action="/home/create" method="post">
+    <div class="mb-3">
+        <label class="form-label">아이디</label>
+        <input type="text" class="form-control" name="username">
+    </div>
+    <button type="submit" class="btn btn-primary">id 중복확인</button>
+
+    <div class="mb-3">
+        <label class="form-label">비밀번호</label>
+        <input type="password" class="form-control" rows="3" name="password">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">비밀번호 재확인</label>
+        <input type="password" class="form-control" rows="3" name="password_check">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">이름</label>
+        <input type="text" class="form-control" rows="3" name="name">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">생년월일</label>
+        <input type="text" class="form-control" rows="3" name="birth">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">학과</label>
+        <input type="text" class="form-control" rows="3" name="department">
+    </div>
+    <button type="submit" class="btn btn-primary">회원가입 완료</button>
+</form>
+{{>layouts/footer}}
