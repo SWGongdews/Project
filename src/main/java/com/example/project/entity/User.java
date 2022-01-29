@@ -38,4 +38,5 @@ public class User {
     private String updateAt;
     @Column
     private char status;
+
 }
