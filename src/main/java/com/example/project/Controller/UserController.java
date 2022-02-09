@@ -20,7 +20,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-
     //모든 회원 정보 가져오기
     @GetMapping("/users/getAll")
     public List<User> getAllusers(){
@@ -51,8 +50,8 @@ public class UserController {
         return (duplicated != null) ?
                 false: true;
     }
-    //로그인후 MyPage로 정보 전송
-    @PostMapping("/users/findidphone")
+    //로그인후 home화면으로 이동
+    @PostMapping("/users/login")
     public ResponseEntity<User> login(@RequestBody UserForm dto){
         log.info(dto.toString());
         User login = userService.login(dto);
@@ -60,4 +59,16 @@ public class UserController {
                 ResponseEntity.status(HttpStatus.OK).body(login):
                 ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
+
+    //비밀번호 찾기
+    @PostMapping("/users/findpwid")
+    public ResponseEntity<User> findPw(@RequestBody UserForm dto){
+        log.info(dto.toString());
+        User login = userService.findpw(dto);
+        return (login != null) ?
+                ResponseEntity.status(HttpStatus.OK).body(login):
+                ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+    }
+//삭제, 상태 바꾸기 완료,
+
 }

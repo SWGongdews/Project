@@ -64,4 +64,13 @@ public class UserService {
         }
         return check;
     }
+
+    public User findpw(UserForm dto) {
+        User user=dto.toEntity();
+        User pw = userRepository.findByPw(user.getUserID(), user.getUserPhoneNum());
+        if(pw==null){
+            return null;
+        }
+        return pw;
+    }
 }

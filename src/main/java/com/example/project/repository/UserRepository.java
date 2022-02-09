@@ -27,4 +27,8 @@ public interface UserRepository extends CrudRepository<User, Long> {
     //이메일 중복확인
     @Query("select u from User u where u.userEmail = :email")
     User checkDuplicaionByEmailAddress(@Param("email") String email);
+
+    //비밀번호 조회
+    @Query("select u from User u where u.userID = :id and u.userPhoneNum = :phoneNum")
+    User findByPw(@Param("id") String id, @Param("phoneNum") String phoneNum);
 }
