@@ -11,6 +11,7 @@ import javax.persistence.Column;
 public class ProductForm {
     private Long productIdx;
     private String productName;
+    private String productImage;
     private Long productPrice;
     private String productCategory;
     private Long productUnit;
@@ -23,7 +24,7 @@ public class ProductForm {
     private char status;
 
     public Product toEntity(){
-        return new Product(null, productName, productPrice, productCategory, productUnit,
+        return new Product(null, productName, productImage, productPrice, productCategory, productUnit,
                 productVolume, productDelivery, productExpirationDate, productDetail, createdAt, updateAt, status);
     }
 }

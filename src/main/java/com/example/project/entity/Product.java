@@ -19,6 +19,8 @@ public class Product {
     @Column
     private String productName;
     @Column
+    private String productImage;
+    @Column
     private Long productPrice;
     @Column
     private String productCategory;
@@ -38,6 +40,5 @@ public class Product {
     private String updateAt;
     @Column
     private char status;
-
 
 }

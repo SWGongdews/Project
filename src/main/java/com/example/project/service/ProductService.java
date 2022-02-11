@@ -26,4 +26,14 @@ public class ProductService {
     }
 
     public List<Product> getAllProduct() {return productRepository.findAll();}
+
+    public Product select(ProductForm dto) {
+        Product pro = dto.toEntity();
+        Product choice = productRepository.findProduct(pro.getProductIdx());
+        if(choice == null) {
+            return null;
+        }
+        return choice;
+
+    }
 }
