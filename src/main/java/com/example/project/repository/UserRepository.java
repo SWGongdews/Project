@@ -13,8 +13,8 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
 
     //email 전체 조회
-    @Query("select u from User u where u.userEmail = :email")
-    User findByEmailCheck(@Param("email") String email);
+    @Query("select u from User u where u.userEmail = :userEmail")
+    User findByEmailCheck(@Param("userEmail") String userEmail);
 
     //아이디 비번 일치 확인
     @Query("select u from User u where u.userID = :id and u.userPassword= :password")
