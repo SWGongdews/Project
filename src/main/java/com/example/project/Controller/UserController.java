@@ -37,7 +37,7 @@ public class UserController {
     }
 
     //아이디 중복확인-> 존재하면 true return, 비어있으면
-    @PostMapping("/api/check/email")
+    @PostMapping("/api/check/id")
     public boolean idCheck(@RequestBody UserForm dto){
         User duplicated = userService.idCheck(dto);
         return (duplicated != null) ?

@@ -15,21 +15,29 @@ import javax.persistence.*;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long productId;
+    private Long productIdx;
     @Column
-    private String name;
+    private String productName;
     @Column
-    private Long price;
+    private Long productPrice;
     @Column
-    private String category;
+    private String productCategory;
     @Column
-    private Long unit;
+    private Long productUnit;
     @Column
-    private Long volume;
+    private Long productVolume;
     @Column
-    private String delivery;
+    private String productDelivery;
     @Column
-    private String expirationDate;
+    private String productExpirationDate;
     @Column
-    private String detail;
+    private String productDetail;
+    @Column
+    private String createdAt;
+    @Column
+    private String updateAt;
+    @Column
+    private char status;
+
+
 }
