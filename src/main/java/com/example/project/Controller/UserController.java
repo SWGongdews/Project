@@ -27,7 +27,7 @@ public class UserController {
     }
 
     //회원가입할 때, 잘 입력됐으면 정보 전송
-    @PostMapping("users/signup")
+    @PostMapping("/users/signup")
     public ResponseEntity<User> create(@RequestBody UserForm dto){
         log.info(dto.toString());
         User created = userService.create(dto);
@@ -37,19 +37,13 @@ public class UserController {
     }
 
     //아이디 중복확인-> 존재하면 true return, 비어있으면
-    @PostMapping("/api/check/email")
+    @PostMapping("/api/check/id")
     public boolean idCheck(@RequestBody UserForm dto){
         User duplicated = userService.idCheck(dto);
         return (duplicated != null) ?
                 false: true;
     }
-    //이메일 중복확인-> 존재하면 true return, 비어있으면
-    @PostMapping("/api/check/email")
-    public boolean emailCheck(@RequestBody UserForm dto){
-        User duplicated = userService.emailCheck(dto);
-        return (duplicated != null) ?
-                false: true;
-    }
+
     //로그인후 home화면으로 이동
     @PostMapping("/users/login")
     public ResponseEntity<User> login(@RequestBody UserForm dto){
@@ -69,6 +63,5 @@ public class UserController {
                 ResponseEntity.status(HttpStatus.OK).body(login):
                 ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
-//삭제, 상태 바꾸기 완료,
 
 }

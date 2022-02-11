@@ -2,6 +2,7 @@ package com.example.project.dto;
 
 import com.example.project.entity.User;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @AllArgsConstructor
