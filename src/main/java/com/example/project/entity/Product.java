@@ -37,7 +37,7 @@ public class Product {
     @Column
     private String updateAt;
     @Column
-    private char status;
+    private char status; //품절 여부
 
 
 }

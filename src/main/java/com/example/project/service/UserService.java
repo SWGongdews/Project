@@ -29,15 +29,6 @@ public class UserService {
         }
         return userRepository.save(user);
     }
-    //로그인
-    public User login(UserForm dto) {
-        User user = dto.toEntity(); //사용자가 입력한 정보를 갖는 객체
-        User login = userRepository.findByProfile(user.getUserID(), user.getUserPassword()); //이메일을 건내서 해당 객체 반환
-        if(login==null){
-            return null;
-        }
-        return login;
-    }
 
     //아이디 중복체크
     public User idCheck(UserForm dto){
@@ -48,14 +39,15 @@ public class UserService {
         }
         return check;
     }
-    //이메일 중복체크
-    public User emailCheck(UserForm dto){
-        User user=dto.toEntity();
-        User check = userRepository.checkDuplicaionByEmailAddress(user.getUserEmail());
-        if(check==null){
+
+    //로그인
+    public User login(UserForm dto) {
+        User user = dto.toEntity(); //사용자가 입력한 정보를 갖는 객체
+        User login = userRepository.findByProfile(user.getUserID(), user.getUserPassword()); //아이디와 비밀번호를 전달
+        if(login==null){ //아이디와 비밀번호가 일치하는 객체가 없을 때
             return null;
         }
-        return check;
+        return login; //아이디와 비밀번호가 일치할 때
     }
 
     public User findpw(UserForm dto) {
