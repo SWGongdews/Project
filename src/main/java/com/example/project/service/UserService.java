@@ -29,15 +29,6 @@ public class UserService {
         }
         return userRepository.save(user);
     }
-    //로그인
-    public User login(UserForm dto) {
-        User user = dto.toEntity(); //사용자가 입력한 정보를 갖는 객체
-        User login = userRepository.findByProfile(user.getUserID(), user.getUserPassword()); //이메일을 건내서 해당 객체 반환
-        if(login==null){
-            return null;
-        }
-        return login;
-    }
 
     //아이디 중복체크
     public User idCheck(UserForm dto){
@@ -48,22 +39,49 @@ public class UserService {
         }
         return check;
     }
-    //이메일 중복체크
-    public User emailCheck(UserForm dto){
-        User user=dto.toEntity();
-        User check = userRepository.checkDuplicaionByEmailAddress(user.getUserEmail());
-        if(check==null){
+
+    //로그인
+    public User login(UserForm dto) {
+        User user = dto.toEntity(); //사용자가 입력한 정보를 갖는 객체
+        User login = userRepository.findByProfile(user.getUserID(), user.getUserPassword()); //아이디와 비밀번호를 전달
+        if(login==null){ //아이디와 비밀번호가 일치하는 객체가 없을 때
             return null;
         }
-        return check;
+        return login; //아이디와 비밀번호가 일치할 때
+    }
+    //아이디 찾기-휴대폰 인증
+    public User findidPhone(String name, String phone) {
+        User idP=userRepository.findidByPhone(name,phone);
+        if(idP==null){
+            return null;
+        }
+        return idP;
+    }
+    //아이디 찾기-이메일 인증
+    public User findidEmail(String name, String email) {
+        User idE=userRepository.findidByEmail(name ,email);
+        if(idE==null){
+            return null;
+        }
+        return idE;
+    }
+    //비번찾기-휴대폰 인증
+    public User findpwPhone(String id, String phone) {
+        User pwP = userRepository.findpwByPhone(id, phone);
+        if(pwP==null){
+            return null;
+        }
+        return pwP;
+    }
+    //비번찾기-이메일 인증
+    public User findpwEmail(String id, String email) {
+        User pwE = userRepository.findpwByEmail(id, email);
+        if(pwE==null){
+            return null;
+        }
+        return pwE;
     }
 
-    public User findpw(UserForm dto) {
-        User user=dto.toEntity();
-        User pw = userRepository.findByPw(user.getUserID(), user.getUserPhoneNum());
-        if(pw==null){
-            return null;
-        }
-        return pw;
-    }
+
+
 }
