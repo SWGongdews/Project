@@ -24,6 +24,26 @@ public class ProductService {
         return productRepository.save(pro);
 
     }
-
+    //모든 상품 조회
     public List<Product> getAllProduct() {return productRepository.findAll();}
+
+    //특정 상품 조회
+    public Product select(ProductForm dto) {
+        Product pro = dto.toEntity();
+        Product choice = productRepository.findProduct(pro.getProductIdx());
+        if(choice == null) {
+            return null;
+        }
+        return choice;
+
+    }
+    //이 상품 어때요?
+    public List<Product> getRandomProduct() {
+        return productRepository.findRamdomProduct();
+    }
+
+    //놓치면 후회할 가격!
+    public List<Product> getDiscountProduct() {
+        return productRepository.findDiscountProduct();
+    }
 }
