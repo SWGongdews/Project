@@ -46,16 +46,7 @@ public class Product {
     @Column(nullable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Timestamp updateAt;
 
-    @Column
-<<<<<<< HEAD
-    private String createdAt;
-    @Column
-    private String updateAt;
-    @Column
-    private char status; //품절 여부
-=======
     @ColumnDefault("N")
     private char status;
->>>>>>> seungjun
 
 }
