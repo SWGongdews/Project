@@ -31,7 +31,7 @@ public class ProductController {
 
     //모든 상품 정보 가져오기
     @GetMapping("/products/getAll")
-    public List<Product> getAllproduct(){
+    public List<Product> getAllProduct(){
         return productService.getAllProduct();
     }
 
@@ -44,5 +44,15 @@ public class ProductController {
                 ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 
+    //이 상품 어때요?
+    @GetMapping("products/random-items")
+    public List<Product> getRandomProduct(){
+        return productService.getRandomProduct();
+    }
 
+    //놓치면 후회할 가격!
+    @GetMapping("products/sale-items")
+    public List<Product> getDiscountProduct(){
+        return productService.getDiscountProduct();
+    }
 }

@@ -5,11 +5,14 @@ import lombok.AllArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.Column;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @ToString
 public class ProductForm {
     private Long productIdx;
+    //discount 외래키 추가하기
     private String productName;
     private String productImage;
     private Long productPrice;
@@ -19,8 +22,8 @@ public class ProductForm {
     private String productDelivery;
     private String productExpirationDate;
     private String productDetail;
-    private String createdAt;
-    private String updateAt;
+    private Timestamp createdAt;
+    private Timestamp updateAt;
     private char status;
 
     public Product toEntity(){
