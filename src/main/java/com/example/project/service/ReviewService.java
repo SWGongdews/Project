@@ -18,6 +18,7 @@ public class ReviewService {
     //리뷰 생성
     public Review created(ReviewForm dto) {
         Review review=dto.toEntity();
+        reviewRepository.save(review);
         return review;
     }
     //해당 유저의 작성가능 리뷰 반환

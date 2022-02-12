@@ -49,13 +49,39 @@ public class UserService {
         }
         return login; //아이디와 비밀번호가 일치할 때
     }
-
-    public User findpw(UserForm dto) {
-        User user=dto.toEntity();
-        User pw = userRepository.findByPw(user.getUserID(), user.getUserPhoneNum());
-        if(pw==null){
+    //아이디 찾기-휴대폰 인증
+    public User findidPhone(String name, String phone) {
+        User idP=userRepository.findidByPhone(name,phone);
+        if(idP==null){
             return null;
         }
-        return pw;
+        return idP;
     }
+    //아이디 찾기-이메일 인증
+    public User findidEmail(String name, String email) {
+        User idE=userRepository.findidByEmail(name ,email);
+        if(idE==null){
+            return null;
+        }
+        return idE;
+    }
+    //비번찾기-휴대폰 인증
+    public User findpwPhone(String id, String phone) {
+        User pwP = userRepository.findpwByPhone(id, phone);
+        if(pwP==null){
+            return null;
+        }
+        return pwP;
+    }
+    //비번찾기-이메일 인증
+    public User findpwEmail(String id, String email) {
+        User pwE = userRepository.findpwByEmail(id, email);
+        if(pwE==null){
+            return null;
+        }
+        return pwE;
+    }
+
+
+
 }
