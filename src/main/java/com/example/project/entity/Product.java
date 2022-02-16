@@ -27,6 +27,8 @@ public class Product {
     @Column
     private String productCategory;
     @Column
+    private Long discountRate;
+    @Column
     private Long productUnit;
     @Column
     private Long productVolume;
