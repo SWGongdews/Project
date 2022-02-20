@@ -18,7 +18,7 @@ public class ProductService {
     //상품생성
     public Product create(ProductForm dto) {
         Product pro = dto.toEntity();
-        if(pro.getProductIdx() != null){
+        if(pro.getProduct_Idx() != null){
             return null;
         }
         return productRepository.save(pro);
@@ -28,9 +28,8 @@ public class ProductService {
     public List<Product> getAllProduct() {return productRepository.findAll();}
 
     //특정 상품 조회
-    public Product select(ProductForm dto) {
-        Product pro = dto.toEntity();
-        Product choice = productRepository.findProduct(pro.getProductIdx());
+    public Product select(Long id) {
+        Product choice = productRepository.findProducts(id);
         if(choice == null) {
             return null;
         }
@@ -46,4 +45,7 @@ public class ProductService {
     public List<Product> getDiscountProduct() {
         return productRepository.findDiscountProduct();
     }
+
+    //리뷰 3개 돌파
+    public List<Product> getReviewProduct() { return productRepository.reviewProduct(); }
 }

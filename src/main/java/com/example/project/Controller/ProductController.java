@@ -7,10 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,14 +34,15 @@ public class ProductController {
 
     //특정 상품 정보 가져오기
     @GetMapping("/products/get/{id}")
-    public ResponseEntity<Product> show(@RequestBody ProductForm dto){
-        Product selected=productService.select(dto);
+    public ResponseEntity<Product> show(@PathVariable Long id){
+        Product selected=productService.select(id);
         return (selected != null) ?
                 ResponseEntity.status(HttpStatus.OK).body(selected):
                 ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 
     //이 상품 어때요?
+    //@RequestParam(value="productName", required = false, defaultValue = "") String productName
     @GetMapping("products/random-items")
     public List<Product> getRandomProduct(){
         return productService.getRandomProduct();
@@ -55,4 +53,13 @@ public class ProductController {
     public List<Product> getDiscountProduct(){
         return productService.getDiscountProduct();
     }
+
+    //리뷰 3개 이상
+    @GetMapping("products/good-items")
+    public List<Product> getReviewProduct(){
+        return productService.getReviewProduct();
+    }
+
+
+
 }

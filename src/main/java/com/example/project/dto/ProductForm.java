@@ -11,23 +11,23 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @ToString
 public class ProductForm {
-    private Long productIdx;
-    private String productName;
-    private String productImage;
-    private Long productPrice;
-    private String productCategory;
-    private Long discountRate;
-    private Long productUnit;
-    private Long productVolume;
-    private String productDelivery;
-    private String productExpirationDate;
-    private String productDetail;
+    private Long product_Idx;
+    private String product_Name;
+    private String product_Image;
+    private Long product_Price;
+    private String product_Category;
+    private Long discount_Rate;
+    private Long product_Unit;
+    private Long product_Volume;
+    private String product_Delivery;
+    private String product_ExpirationDate;
+    private String product_Detail;
     private Timestamp createdAt;
-    private Timestamp updateAt;
+    private Timestamp updated_at;
     private char status;
 
     public Product toEntity(){
-        return new Product(null, productName, productImage, productPrice, productCategory, discountRate, productUnit,
-                productVolume, productDelivery, productExpirationDate, productDetail, createdAt, updateAt, status);
+        return new Product(null, product_Name, product_Image, product_Price, product_Category, discount_Rate, product_Unit,
+                product_Volume, product_Delivery, product_ExpirationDate, product_Detail, createdAt, updated_at, status);
     }
 }

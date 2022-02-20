@@ -17,33 +17,33 @@ import java.sql.Timestamp;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long productIdx;
+    private Long product_Idx;
     @Column
-    private String productName;
+    private String product_Name;
     @Column
-    private String productImage;
+    private String product_Image;
     @Column
-    private Long productPrice;
+    private Long product_Price;
     @Column
-    private String productCategory;
+    private String product_Category;
     @Column
-    private Long discountRate;
+    private Long discount_Rate;
     @Column
-    private Long productUnit;
+    private Long product_Unit;
     @Column
-    private Long productVolume;
+    private Long product_Volume;
     @Column
-    private String productDelivery;
+    private String product_Delivery;
     @Column
-    private String productExpirationDate;
+    private String product_ExpirationDate;
     @Column
-    private String productDetail;
+    private String product_Detail;
 
     @Column(nullable = false, updatable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Timestamp createdAt;
 
     @Column(nullable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private Timestamp updateAt;
+    private Timestamp updated_at;
 
     @ColumnDefault("N") //판매중단 상태인지
     private char status;
