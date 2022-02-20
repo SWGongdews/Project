@@ -39,7 +39,15 @@ public class UserService {
         }
         return check;
     }
-
+    //이메일 중복체크
+    public User emailCheck(UserForm dto) {
+        User user= dto.toEntity();
+        User check = userRepository.checkDuplicaionByEmail(user.getUserEmail());
+        if(check==null){
+            return null;
+        }
+        return check;
+    }
     //로그인
     public User login(UserForm dto) {
         User user = dto.toEntity(); //사용자가 입력한 정보를 갖는 객체

@@ -34,12 +34,20 @@ public class UserController {
     }
 
     //아이디 중복확인-> 중복되는 아이디가 없으면 true return, 아이디가 중복되면 false return
-    @PostMapping("/api/check/id")
+    @PostMapping("/users/duplicationidcheck ")
     public boolean idCheck(@RequestBody UserForm dto){
         User duplicated = userService.idCheck(dto);
         return (duplicated != null) ? //중복되는 아이디가 있으면
                 false: true;
     }
+    //이메일 중복확인 -> 중복되는 이메일이 없으면 true return, 이메일이 중복되면 false return
+    @PostMapping("/users/duplicationemailcheck")
+    public boolean emailCheck(@RequestBody UserForm dto){
+        User duplicated = userService.emailCheck(dto);
+        return (duplicated!=null)?
+                false:true;
+    }
+
 
     //로그인에서 아이디와 비번일치 확인
     @PostMapping("/users/login")
