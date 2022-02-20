@@ -95,5 +95,13 @@ public class UserController {
                 ResponseEntity.status(HttpStatus.OK).body(find):
                 ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
+    //개인 정보 수정
+    @PatchMapping("/users/update")
+    public ResponseEntity<User> updateUser(@RequestBody UserForm dto){
+        User updated= userService.update(dto);
+        return (updated!=null)?
+                ResponseEntity.status(HttpStatus.OK).body(updated):
+                ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+    }
 
 }

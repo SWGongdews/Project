@@ -90,6 +90,17 @@ public class UserService {
         return pwE;
     }
 
+    //개인 정보 수정
+    public User update(UserForm dto) {
+        User user = dto.toEntity();
+        User target = userRepository.findUser(user.getUserID());
+        //회원 아이디 조회 실패인 경우에 예외 처리
+        if(target==null){
+            return null;
+        }
+        target.patch(user);
+        User updated= userRepository.save(target);
+        return updated;
 
-
+    }
 }
