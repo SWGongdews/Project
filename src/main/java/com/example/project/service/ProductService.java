@@ -18,7 +18,7 @@ public class ProductService {
     //상품생성
     public Product create(ProductForm dto) {
         Product pro = dto.toEntity();
-        if(pro.getProduct_Idx() != null){
+        if(pro.getProductIdx() != null){
             return null;
         }
         return productRepository.save(pro);
@@ -28,12 +28,24 @@ public class ProductService {
     public List<Product> getAllProduct() {return productRepository.findAll();}
 
     //특정 상품 조회
-    public Product select(Long id) {
+    public String[] select(Long id) {
         Product choice = productRepository.findProducts(id);
         if(choice == null) {
             return null;
         }
-        return choice;
+        if(choice.getDiscountRate() == 0) {
+            String[] info = {choice.getProductName(), choice.getProductDetail(), null, null,
+                    choice.getProductPrice().toString(), choice.getProductUnit().toString(), choice.getProductVolume().toString(),
+                    choice.getProductDetail(), choice.getProductExpirationDate()};
+            return info;
+        }
+        else{
+
+            String[] info = {choice.getProductName(), choice.getProductDetail(), choice.discountPrice().toString(),
+                    choice.getDiscountRate().toString(), choice.getProductPrice().toString(), choice.getProductUnit().toString(),
+                    choice.getProductVolume().toString(), choice.getProductDetail(), choice.getProductExpirationDate()};
+            return info;
+        }
 
     }
     //이 상품 어때요?

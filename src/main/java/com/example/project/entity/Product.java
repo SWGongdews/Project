@@ -15,37 +15,40 @@ import java.sql.Timestamp;
 @Getter
 @ToString
 public class Product {
-    @Id
+    @Id //상품고유코드
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long product_Idx;
-    @Column
-    private String product_Name;
-    @Column
-    private String product_Image;
-    @Column
-    private Long product_Price;
-    @Column
-    private String product_Category;
-    @Column
-    private Long discount_Rate;
-    @Column
-    private Long product_Unit;
-    @Column
-    private Long product_Volume;
-    @Column
-    private String product_Delivery;
-    @Column
-    private String product_ExpirationDate;
-    @Column
-    private String product_Detail;
+    private Long productIdx;
+    @Column //상품명
+    private String productName;
+    @Column //상품이미지
+    private String productImage;
+    @Column //상품가격
+    private Long productPrice;
+    @Column //상품카테고리
+    private String productCategory;
+    @Column //할인율
+    private Long discountRate;
+    @Column //판매 단위
+    private Long productUnit;
+    @Column //판매 용량
+    private Long productVolume;
+    @Column //배송구분
+    private String productDelivery;
+    @Column //유통기한
+    private String productExpirationDate;
+    @Column //상품세부설명
+    private String productDetail;
 
     @Column(nullable = false, updatable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Timestamp createdAt;
 
     @Column(nullable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private Timestamp updated_at;
+    private Timestamp updatedAt;
 
     @ColumnDefault("N") //판매중단 상태인지
     private char status;
 
+    public Long discountPrice(){
+        return productPrice-(productPrice * (discountRate/100));
+    }
 }

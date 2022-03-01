@@ -27,15 +27,15 @@ public class ProductController {
     }
 
     //모든 상품 정보 가져오기
-    @GetMapping("/products/getAll")
+    @GetMapping("/products/get")
     public List<Product> getAllProduct(){
         return productService.getAllProduct();
     }
 
     //특정 상품 정보 가져오기
     @GetMapping("/products/get/{id}")
-    public ResponseEntity<Product> show(@PathVariable Long id){
-        Product selected=productService.select(id);
+    public ResponseEntity<String[]> show(@PathVariable Long id){
+        String[] selected=productService.select(id);
         return (selected != null) ?
                 ResponseEntity.status(HttpStatus.OK).body(selected):
                 ResponseEntity.status(HttpStatus.BAD_REQUEST).build();

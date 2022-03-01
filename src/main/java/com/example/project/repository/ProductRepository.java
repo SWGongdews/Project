@@ -13,10 +13,10 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     ArrayList<Product> findAll();
     String productInform = "SELECT p.product_Idx, p.product_Image, p.product_Name, p.discount_Rate, " +
             "(p.product_Price-(p.product_Price * (p.discount_Rate/100))) AS discount_Price, p.product_Price";
+    String productDetail = "SELECT p.product_Image, p.product_Name, (p.product_Price-(p.product_Price/p.discount_Rate)) AS discount_Price" +
+            "p.discount_Rate, p.product_Price, p.product_unit, product_volume, p.product_delivery, p.product_detail";
 
-    @Query(value = "SELECT p.product_Image, p.product_Name, (p.product_Price-(p.product_Price/p.discount_Rate)) AS discount_Price" +
-            "p.discount_Rate, p.product_Price, p.product_unit, product_volume, p.product_delivery, p.product_detail" +
-            "FROM Product p where p.product_Idx = :Id", nativeQuery = true)
+    @Query(value = "SELECT p FROM Product p where p.productIdx = :Id", nativeQuery = false)
     Product findProducts(@Param("Id") Long productIdx);
 
     //이 상품 어때요?
