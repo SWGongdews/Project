@@ -16,7 +16,10 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
-
+    @GetMapping("/api/hello")
+    public ResponseEntity<String> hello(){
+        return ResponseEntity.ok("hello");
+    }
     //모든 회원 정보 가져오기
     @GetMapping("/users/getAll")
     public List<User> getAllusers(){
@@ -103,10 +106,7 @@ public class UserController {
                 ResponseEntity.status(HttpStatus.OK).body(find):
                 ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
-//    @PostMapping("/users/modifypw")
-//    public ResponseEntity<User> modifyPw(@RequestParam(value="userPw", required = false) String userPw){
-//        User modify = userService.
-//    }
+
 
     //개인 정보 수정 페이지에 미리 정보(아이디, 이름 , 이메일, 휴대폰, 현재 비밀번호) 세팅
     @PostMapping("/users/update/before")

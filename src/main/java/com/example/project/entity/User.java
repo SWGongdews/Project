@@ -1,11 +1,9 @@
 package com.example.project.entity;
 
 import lombok.*;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.Collection;
+import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -13,7 +11,7 @@ import java.util.Collection;
 @ToString
 @Getter
 @Builder
-public class User implements UserDetails {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userIdx;
@@ -40,42 +38,18 @@ public class User implements UserDetails {
     @Column(columnDefinition="VARCHAR(4) default 'Y'")
     private char status;
 
-    public Collection<? extends GrantedAuthority> getAuthorities(){
-        return getAuthorities();
-    }
+    @ManyToMany
+    @JoinTable(
+            name = "user_authority",
+            joinColumns = {@JoinColumn(name = "userId", referencedColumnName = "userId")},
+            inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authority_name")})
+    private Set<Authority> authorities;
 
-    @Override
-    public String getPassword() {
-        return null;
-    }
 
-    @Override
-    public String getUsername() {
-        return null;
-    }
 
-    @Override
-    public boolean isAccountNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return false;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return false;
-    }
 
     public void patch(User user) {
-        if(user.getUsername()!=null){
+        if(user.getUserName()!=null){
             this.userName = user.userName;
         }
         if(user.getUserEmail()!=null){
