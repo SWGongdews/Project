@@ -33,6 +33,14 @@ public class UserController {
                 ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 
+    //회원가입 완료 페이지에 아이디 이름 이메일 전송
+    @PostMapping("/users/complete")
+    public ResponseEntity<String[]> complete(@RequestBody UserForm dto){
+        String[] completed = userService.completed(dto);
+        return (completed != null) ?
+                ResponseEntity.status(HttpStatus.OK).body(completed):
+                ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+    }
     //아이디 중복확인-> 중복되는 아이디가 없으면 true return, 아이디가 중복되면 false return
     @PostMapping("/users/duplicationidcheck ")
     public boolean idCheck(@RequestBody UserForm dto){
@@ -93,6 +101,19 @@ public class UserController {
         User find = userService.findpwEmail(userId, userEmail);
         return (find != null) ?
                 ResponseEntity.status(HttpStatus.OK).body(find):
+                ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+    }
+//    @PostMapping("/users/modifypw")
+//    public ResponseEntity<User> modifyPw(@RequestParam(value="userPw", required = false) String userPw){
+//        User modify = userService.
+//    }
+
+    //개인 정보 수정 페이지에 미리 정보(아이디, 이름 , 이메일, 휴대폰, 현재 비밀번호) 세팅
+    @PostMapping("/users/update/before")
+    public ResponseEntity<String[]> setUser(@RequestBody UserForm dto){
+        String[] modified = userService.set(dto);
+        return (modified != null) ?
+                ResponseEntity.status(HttpStatus.OK).body(modified):
                 ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
     //개인 정보 수정
