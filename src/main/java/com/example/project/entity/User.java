@@ -16,13 +16,13 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userIdx;
-    @Column
+    @Column(nullable = false)
     private String userID;
-    @Column
+    @Column(nullable = false)
     private String userPassword;
     @Column
     private String userName;
-    @Column
+    @Column(nullable = false)
     private String userEmail;
     @Column
     private String userPhoneNum;
@@ -36,7 +36,35 @@ public class User {
     private String createdAt;
     @Column
     private String updateAt;
-    @Column
+    @Column(columnDefinition="VARCHAR(4) default 'Y'")
     private char status;
 
+    public void patch(User user) {
+        if(user.getUserName()!=null){
+            this.userName = user.userName;
+        }
+        if(user.getUserEmail()!=null){
+            this.userEmail = user.userEmail;
+        }
+        if(user.getUserPhoneNum()!=null){
+            this.userPhoneNum = user.userPhoneNum;
+        }
+        if(user.getUserLocation()!=null){
+            this.userLocation = user.userLocation;
+        }
+        if(user.getUserGender()!=null){
+            this.userGender = user.userGender;
+        }
+        if(user.getUserBirth()!=null){
+            this.userBirth = user.userBirth;
+        }
+        if(user.getCreatedAt()!=null){
+            this.createdAt = user.createdAt;
+        }
+        //수정 필요
+        if(user.getUpdateAt()!=null){
+            this.updateAt = user.updateAt;
+        }
+        this.status='Y';
+    }
 }

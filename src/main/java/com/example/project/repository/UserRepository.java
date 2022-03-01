@@ -1,5 +1,6 @@
 package com.example.project.repository;
 
+import com.example.project.dto.UserForm;
 import com.example.project.entity.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -26,7 +27,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
     //이메일 중복확인
     @Query("select u from User u where u.userEmail = :email")
-    User checkDuplicaionByEmailAddress(@Param("email") String email);
+    User checkDuplicaionByEmail(@Param("email") String email);
 
     //아이디 찾기-휴대폰 인증
     @Query("select u from User u where u.userPhoneNum= :PhoneNum and u.userName= :Name")
@@ -42,5 +43,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
     @Query("select u from User u where u.userID = :id and u.userEmail = :email")
     User findpwByEmail(@Param("id") String id, @Param("email") String email);
 
-
+    //수정할 회원 정보 조회-> id로 조회
+    @Query("select u from User u where u.userID = :id")
+    User findUser(@Param("id") String id);
 }
