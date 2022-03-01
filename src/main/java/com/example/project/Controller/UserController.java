@@ -42,7 +42,7 @@ public class UserController {
                 ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
     //아이디 중복확인-> 중복되는 아이디가 없으면 true return, 아이디가 중복되면 false return
-    @PostMapping("/users/duplicationidcheck ")
+    @PostMapping("/users/duplicationidcheck")
     public boolean idCheck(@RequestBody UserForm dto){
         User duplicated = userService.idCheck(dto);
         return (duplicated != null) ? //중복되는 아이디가 있으면
