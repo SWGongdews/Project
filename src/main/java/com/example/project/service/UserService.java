@@ -31,7 +31,7 @@ public class UserService {
     }
     public String[] completed(UserForm dto) {
         User user = dto.toEntity();
-        String[] info = {user.getUserID(),user.getUserName(),user.getUserEmail()};
+        String[] info = {user.getUserID(),user.getUsername(),user.getUserEmail()};
         return info;
     }
     //아이디 중복체크
@@ -96,7 +96,7 @@ public class UserService {
     //개인 정보 수정 페이지에 미리 정보(아이디, 이름 , 이메일, 휴대폰, 현재 비밀번호) 세팅
     public String[] set(UserForm dto) {
         User user = dto.toEntity();
-        String[] info = {user.getUserID(), user.getUserName(), user.getUserEmail(),
+        String[] info = {user.getUserID(), user.getUsername(), user.getUserEmail(),
         user.getUserPhoneNum(),user.getUserPassword()};
         return info;
     }
@@ -115,5 +115,8 @@ public class UserService {
     }
 
 
-
+    public User getUser(String email) {
+        User user = userRepository.findUserByEmail(email);
+        return user;
+    }
 }

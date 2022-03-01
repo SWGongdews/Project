@@ -1,18 +1,19 @@
 package com.example.project.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Getter
-public class User {
+@Builder
+public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userIdx;
@@ -39,8 +40,42 @@ public class User {
     @Column(columnDefinition="VARCHAR(4) default 'Y'")
     private char status;
 
+    public Collection<? extends GrantedAuthority> getAuthorities(){
+        return getAuthorities();
+    }
+
+    @Override
+    public String getPassword() {
+        return null;
+    }
+
+    @Override
+    public String getUsername() {
+        return null;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
+    }
+
     public void patch(User user) {
-        if(user.getUserName()!=null){
+        if(user.getUsername()!=null){
             this.userName = user.userName;
         }
         if(user.getUserEmail()!=null){
