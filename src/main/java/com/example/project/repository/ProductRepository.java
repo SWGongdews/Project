@@ -16,21 +16,20 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     String productDetail = "SELECT p.product_Image, p.product_Name, (p.product_Price-(p.product_Price/p.discount_Rate)) AS discount_Price" +
             "p.discount_Rate, p.product_Price, p.product_unit, product_volume, p.product_delivery, p.product_detail";
 
-    @Query(value = "SELECT p FROM Product p where p.productIdx = :Id", nativeQuery = false)
+    //특정 상품 조회
+    @Query(value = "SELECT p FROM Product p where p.productIdx = :Id")
     Product findProducts(@Param("Id") Long productIdx);
 
     //이 상품 어때요?
-    @Query(value = "SELECT p.product_Idx, p.product_Image, p.product_Name, p.discount_Rate," +
-            "(p.product_Price-(p.product_Price * (p.discount_Rate/100))) AS discount_Price , p.product_Price FROM Product p ORDER BY RAND() LIMIT 3", nativeQuery = true)
+    @Query(value = "SELECT * FROM Product p ORDER BY RAND() LIMIT 8", nativeQuery = true)
     ArrayList<Product> findRamdomProduct();
 
     //놓치면 후회할 가격!
-    @Query(value = productInform + " FROM Product p", nativeQuery = true)
+    @Query(value = "SELECT * FROM Product p ORDER BY p.discount_rate DESC LIMIT 8", nativeQuery = true)
     ArrayList<Product> findDiscountProduct();
 
     //후기 3000개 돌파 상품
-    @Query(value = "SELECT p.product_Idx, p.product_Image, p.product_Name, p.discount_Rate,\n" +
-            "       (p.product_Price-(p.product_Price/p.discount_Rate)) AS discount_Price, p.product_Price\n" +
+    @Query(value = "SELECT *" +
             "    FROM Product p\n" +
             "\n" +
             "        LEFT JOIN ( SELECT product_id, count(product_id) AS 'reviewCount'\n" +

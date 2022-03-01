@@ -17,8 +17,8 @@ public class ProductForm {
     private Long productPrice;
     private String productCategory;
     private Long discountRate;
-    private Long productUnit;
-    private Long productVolume;
+    private String productUnit;
+    private String productVolume;
     private String productDelivery;
     private String productExpirationDate;
     private String productDetail;

@@ -34,16 +34,17 @@ public class ProductService {
             return null;
         }
         if(choice.getDiscountRate() == 0) {
-            String[] info = {choice.getProductName(), choice.getProductDetail(), null, null,
-                    choice.getProductPrice().toString(), choice.getProductUnit().toString(), choice.getProductVolume().toString(),
+            String[] info = {choice.getProductImage(), choice.getProductName(), choice.getProductDetail(), null, null,
+                    choice.getProductPrice().toString(), choice.getProductUnit(), choice.getProductVolume(),
                     choice.getProductDetail(), choice.getProductExpirationDate()};
             return info;
         }
         else{
 
-            String[] info = {choice.getProductName(), choice.getProductDetail(), choice.discountPrice().toString(),
-                    choice.getDiscountRate().toString(), choice.getProductPrice().toString(), choice.getProductUnit().toString(),
-                    choice.getProductVolume().toString(), choice.getProductDetail(), choice.getProductExpirationDate()};
+            String[] info = {choice.getProductImage(), choice.getProductName(), choice.getProductDetail(),
+                    choice.discountPrice().toString(), choice.getDiscountRate().toString(), choice.getProductPrice().toString(),
+                    choice.getProductUnit(), choice.getProductVolume(), choice.getProductDetail(),
+                    choice.getProductExpirationDate()};
             return info;
         }
 

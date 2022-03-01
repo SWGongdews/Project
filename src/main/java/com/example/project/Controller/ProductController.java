@@ -44,22 +44,44 @@ public class ProductController {
     //이 상품 어때요?
     //@RequestParam(value="productName", required = false, defaultValue = "") String productName
     @GetMapping("products/random-items")
-    public List<Product> getRandomProduct(){
-        return productService.getRandomProduct();
+    public ResponseEntity<List<Product>> getRandomProduct(@RequestParam(value="title", required = false) String title){
+        List<Product> productList;
+        switch (title){
+            case "이 상품 어때요?":
+                productList=productService.getRandomProduct();
+                break;
+            case "놓치면 후회할 가격":
+                productList=productService.getDiscountProduct();
+                break;
+            case "후기 3000개 돌파 상품":
+                productList=productService.getReviewProduct();
+                break;
+//            case "지금 가장 핫한 상품":
+//                break;
+//            case "인기 신상품 랭킹":
+//                break;
+
+            default:
+                productList = null;
+                break;
+        }
+        return (productList != null) ?
+                ResponseEntity.status(HttpStatus.OK).body(productList):
+                ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 
-    //놓치면 후회할 가격!
-    @GetMapping("products/sale-items")
-    public List<Product> getDiscountProduct(){
-        return productService.getDiscountProduct();
-    }
-
-    //리뷰 3개 이상
-    @GetMapping("products/good-items")
-    public List<Product> getReviewProduct(){
-        return productService.getReviewProduct();
-    }
-
+//    //놓치면 후회할 가격!
+//    @GetMapping("products/sale-items")
+//    public ResponseEntity<Product> getDiscountProduct(){
+//        return productService.getDiscountProduct();
+//    }
+//
+//    //리뷰 3개 이상
+//    @GetMapping("products/good-items")
+//    public ResponseEntity<Product> getReviewProduct(){
+//        return productService.getReviewProduct();
+//    }
+//
 
 
 }
