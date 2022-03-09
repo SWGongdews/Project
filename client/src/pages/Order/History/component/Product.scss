@@ -1,0 +1,77 @@
+@import "../../../../Styles/common.scss";
+
+
+.order-date {
+  color: $medium-gray;
+  font-size: 16px;
+  padding: 30px 0 10px 0;
+}
+
+.typical-info {
+  border: 1px solid #dddfe1;
+  padding: 0 20px;
+  margin-bottom: 15px;
+
+  .typical-name {
+    padding: 20px 0;
+    border-bottom: 1px solid #dddfe1;
+
+    a {
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+      text-decoration: none;
+      color: $dark-gray;
+
+      button {
+        background-color: #ffffff;
+        border: 0;
+        font-weight: bold;
+        font-size: 20px;
+        color: $light-gray;
+        height: 20px;
+      }
+    }
+  }
+
+  .typical-product {
+    display: flex;
+    align-items: center;
+    padding: 14px 0 20px 0;
+
+    img {
+      width: 60px;
+      height: 80px;
+    }
+
+    .detail {
+      width: 450px;
+      padding-left: 15px;
+
+      dl {
+        display: flex;
+        margin: 0;
+        align-items: center;
+
+        dt {
+          font-size: 12px;
+          padding-right: 15px;
+        }
+
+        dd {
+          font-size: 14px;
+          margin: 0;
+        }
+      }
+    }
+
+    button {
+      border: 1px solid $main-purple;
+      color: $main-purple;
+      background-color: #ffffff;
+      font-size: 12px;
+      width: 130px;
+      height: 40px;
+    }
+  }
+}

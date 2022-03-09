@@ -1,0 +1,143 @@
+@import "../../Styles/common.scss";
+
+@mixin price-ptag {
+  width: 110px;
+  text-align: right;
+  margin-bottom: 0;
+}
+
+
+.cart-container {
+  width: 980px;
+  margin: 0 auto;
+  padding-bottom: 80px;
+
+  h2 {
+    text-align: center;
+    padding: 50px 0;
+    margin: 0;
+  }
+
+  .cart-content {
+    display: flex;
+
+    .cart-product {    
+      .user-choice {
+        padding: 15px 0;
+
+        label{
+          font-size: 14px;
+
+          input[type=checkbox] {
+            margin-right: 10px;
+          }
+
+          &:first-child::after {
+            content: "|";
+            padding: 0 15px;
+            color: #DDDDDD;
+          }
+        }
+
+        button {
+          background-color: #ffffff;
+          border: none;
+          font-size: 14px;
+        } 
+      }
+
+      .show-btn {
+        width: 678px;
+        border-top: 1px solid #333333;
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 15px 0 15px;
+
+        span {
+          font-size: 18px;
+          font-weight: bold;
+        }
+
+        button {
+          background-color: #ffffff;
+          border: none;
+          font-size: 20px;
+          font-weight: bold;
+        }
+      }
+
+      .product-info {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #DDDDDD;
+        padding: 30px 0;
+  
+        img {
+          width: 60px;
+          height: 78px;
+          margin: auto 15px;
+        }
+
+        .product-name {
+          text-decoration: none;
+          color: #333333;
+
+          div {
+            width: 327px;
+          }
+        }
+        
+        .plus-or-minus {
+          border: 1px solid #999999;
+          border-radius: 3px;
+          display: flex;
+
+          button {
+            background-color: #ffffff;
+            border: 0;
+            width: 28px;
+            height: 28px;
+            font-size: 20px;
+            font-weight: bold;
+          }
+
+          .counter {
+            width: 30px;
+            height: 28px;
+            border: 0;
+            text-align: center;
+          }
+        }
+
+        .sale {
+          @include price-ptag;
+
+          .sale-price {
+            font-weight: bold;
+          }
+
+          .original-price {
+            color: #999999;
+            font-size: 14px;
+            text-decoration: line-through;
+            margin-top: 5px;
+          }
+        }
+
+        .not-sale {
+          @include price-ptag;
+          font-weight: bold;
+        }
+
+        .delete-btn {
+          background-color: #ffffff;
+          border: 0;
+          width: 30px;
+          height: 30px;
+          margin: 0 10px;
+          color: #999999;
+        }
+      }
+    }
+  }
+}

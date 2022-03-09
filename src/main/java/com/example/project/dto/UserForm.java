@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
 public class UserForm {
     private Long userIdx;
     private String userID;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String userPassword;
     private String userName;
     private String userEmail;
@@ -29,24 +30,6 @@ public class UserForm {
     private String updateAt;
     private char status;
 
-
-//    public User toEntity() {
-//        return User.builder()
-//                .userIdx(null)
-//                .userID(userID)
-//                .userPassword(userPassword)
-//                .userName(userName)
-//                .userEmail(userEmail)
-//                .userPhoneNum(userPhoneNum)
-//                .userLocation(userLocation)
-//                .userGender(userGender)
-//                .userBirth(userBirth)
-//                .createdAt(createdAt)
-//                .updateAt(updateAt)
-//                .status(status)
-//                .authorities(authorities)
-//                .build();
-//    }
 
     public User toEntity() {
         return new User(null, userID, userPassword, userName, userEmail, userPhoneNum,

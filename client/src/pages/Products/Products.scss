@@ -1,0 +1,105 @@
+@import "../../Styles/common.scss";
+
+
+.product-container {
+  margin-bottom: 150px;
+
+  .title {
+    font-size: 28px;
+    text-align: center;
+    color: $dark-gray;
+    margin: 27px;
+  }
+
+  .product-content {
+    display: flex;
+    width: 1050px;
+    margin: 0 auto;
+    height: 450px;
+    // overflow: hidden;
+
+    .product-item {
+      padding: 0 9px;    
+
+      .product-details {
+        width: 250px;
+        height: 320px;
+        // transform: translate(-1150px);
+        
+        .image {
+          display: flex;
+          align-items: flex-end;
+
+          .product-image {
+            width: 250px;
+            height: 320px;
+          }
+  
+          .cart-image {
+            width: 45px;
+            height: 45px;
+            margin-left: -55px;
+            margin-bottom: 10px;
+            border-radius: 20px;
+          }
+        }
+  
+        .info {
+          padding: 14px 10px 0 0;
+
+          .name {
+            margin-bottom: 8px;
+
+            a {
+              text-decoration: none;
+              color: $dark-gray;
+            }
+          }
+    
+          .sale {
+            .detail {
+              display: flex;
+              font-size: 16px;
+              font-weight: bold;
+      
+              .discount-rate {
+                color: rgb(250, 98, 47);
+                margin-right: 7px;
+              }
+      
+              .discount-price {
+                color: $dark-gray;
+              }
+            }
+
+            .original-price {
+              color: $light-gray;
+              text-decoration: line-through;
+            }
+          }
+
+          .not-sale {
+            .original-price {
+              font-size: 16px;
+              font-weight: bold;
+              color: $dark-gray;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .image-container {
+    width: 1500px;
+
+    .carousel-control-prev-icon {
+      margin-left: 30px;
+      margin-bottom: 100px;
+    }
+    
+    .carousel-control-next-icon {
+      margin-bottom: 100px;
+    }
+  }
+}

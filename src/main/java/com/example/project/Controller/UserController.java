@@ -103,10 +103,6 @@ public class UserController {
                 ResponseEntity.status(HttpStatus.OK).body(find):
                 ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
-//    @PostMapping("/users/modifypw")
-//    public ResponseEntity<User> modifyPw(@RequestParam(value="userPw", required = false) String userPw){
-//        User modify = userService.
-//    }
 
     //개인 정보 수정 페이지에 미리 정보(아이디, 이름 , 이메일, 휴대폰, 현재 비밀번호) 세팅
     @PostMapping("/users/update/before")
