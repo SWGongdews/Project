@@ -113,10 +113,12 @@ public class UserService {
         return updated;
 
     }
-
-
     public User getUser(String email) {
         User user = userRepository.findUserByEmail(email);
         return user;
     }
+//    //비밀 번호 잃어버렸을 때 새로 비밀번호 patch
+//    public User loseUpdatePassword(String password) {
+//
+//    }
 }

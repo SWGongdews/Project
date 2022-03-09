@@ -1,6 +1,5 @@
 package com.example.project.dto;
 
-import com.example.project.entity.Authority;
 import com.example.project.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.ToString;
@@ -22,9 +21,9 @@ public class UserForm {
     private String createdAt;
     private String updateAt;
     private char status;
-    private Set<Authority> authorities;
+
     public User toEntity() {
         return new User(null, userID, userPassword, userName, userEmail, userPhoneNum,
-                userLocation, userGender, userBirth, createdAt, updateAt, status, authorities);
+                userLocation, userGender, userBirth, createdAt, updateAt, status);
     }
 }
