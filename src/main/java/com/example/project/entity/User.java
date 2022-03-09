@@ -46,16 +46,7 @@ public class User {
     private String updateAt;
     @Column(columnDefinition="VARCHAR(4) default 'Y'")
     private char status;
-//
-//    @Column(name = "activated")
-//    private boolean activated;
-//
-//    @ManyToMany
-//    @JoinTable(
-//            name = "user_authority",
-//            joinColumns = {@JoinColumn(name = "user_idx", referencedColumnName = "user_idx")},
-//            inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authority_name")})
-//    private Set<Authority> authorities;
+
 
     //유저 정보 수정
     public void patch(User user) {

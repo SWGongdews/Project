@@ -20,7 +20,7 @@ public class ReviewForm {
     private String reviewImage; //리뷰에 담기는 사진
     private LocalDateTime createdAt; //생성 시간
     private String updatedAt; //업데이트 시간
-    private short status;//상태(리뷰 작성 전,후)
+    private String status;//상태(리뷰 작성 전,후)
 
     public Review toEntity(){
         return new Review(null, productId,userIdx, orderIdx, reviewTitle,
