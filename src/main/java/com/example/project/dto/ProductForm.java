@@ -12,22 +12,22 @@ import java.time.LocalDateTime;
 @ToString
 public class ProductForm {
     private Long productIdx;
-    //discount 외래키 추가하기
     private String productName;
     private String productImage;
     private Long productPrice;
     private String productCategory;
-    private Long productUnit;
-    private Long productVolume;
+    private Long discountRate;
+    private String productUnit;
+    private String productVolume;
     private String productDelivery;
     private String productExpirationDate;
     private String productDetail;
     private Timestamp createdAt;
-    private Timestamp updateAt;
+    private Timestamp updatedAt;
     private char status;
 
     public Product toEntity(){
-        return new Product(null, productName, productImage, productPrice, productCategory, productUnit,
-                productVolume, productDelivery, productExpirationDate, productDetail, createdAt, updateAt, status);
+        return new Product(null, productName, productImage, productPrice, productCategory, discountRate, productUnit,
+                productVolume, productDelivery, productExpirationDate, productDetail, createdAt, updatedAt, status);
     }
 }

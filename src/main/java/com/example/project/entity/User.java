@@ -6,39 +6,54 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@Table(name="user")
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Getter
+<<<<<<< HEAD
+=======
+@Setter
+>>>>>>> seungjun
 @Builder
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="user_idx")
     private Long userIdx;
-    @Column(nullable = false)
+    @Column(nullable = false, name="userid")
     private String userID;
-    @Column(nullable = false)
+    @Column(nullable = false, name="user_password")
     private String userPassword;
-    @Column
+    @Column(name="user_name")
     private String userName;
-    @Column(nullable = false)
+    @Column(nullable = false, name="user_email")
     private String userEmail;
-    @Column
+    @Column(name="user_phone_num")
     private String userPhoneNum;
-    @Column
+    @Column(name="user_location")
     private String userLocation;
-    @Column
+    @Column(name="user_gender")
     private String userGender;
-    @Column
+    @Column(name="user_birth")
     private String userBirth;
-    @Column
+    @Column(name="created_at")
     private String createdAt;
-    @Column
+    @Column(name="update_at")
     private String updateAt;
     @Column(columnDefinition="VARCHAR(4) default 'Y'")
     private char status;
 
+<<<<<<< HEAD
 
+=======
+//    @ManyToMany
+//    @JoinTable(
+//            name = "user_authority",
+//            joinColumns = {@JoinColumn(name = "userId", referencedColumnName = "userId")},
+//            inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authority_name")})
+//    private Set<Authority> authorities;
+>>>>>>> seungjun
 
     public void patch(User user) {
         if(user.getUserName()!=null){
@@ -68,4 +83,6 @@ public class User {
         }
         this.status='Y';
     }
+
+
 }

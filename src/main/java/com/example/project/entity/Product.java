@@ -5,11 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.hibernate.annotations.ColumnDefault;
-import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
 @Entity
 @AllArgsConstructor
@@ -17,36 +15,42 @@ import java.time.LocalDateTime;
 @Getter
 @ToString
 public class Product {
-    @Id
+    @Id //상품고유코드
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "product_idx")
     private Long productIdx;
-    //discount 외래키 추가하기
-    @Column
+    @Column(name = "product_name") //상품명
     private String productName;
-    @Column
+    @Column(name = "product_image") //상품이미지
     private String productImage;
-    @Column
+    @Column(name = "product_price") //상품가격
     private Long productPrice;
-    @Column
+    @Column(name = "product_category") //상품카테고리
     private String productCategory;
-    @Column
-    private Long productUnit;
-    @Column
-    private Long productVolume;
-    @Column
+    @Column(name = "discount_rate") //할인율
+    private Long discountRate;
+    @Column(name = "product_unit") //판매 단위
+    private String productUnit;
+    @Column(name = "product_volume") //판매 용량
+    private String productVolume;
+    @Column(name = "product_delivery") //배송구분
     private String productDelivery;
-    @Column
+    @Column(name = "product_expiration_date") //유통기한
     private String productExpirationDate;
-    @Column
+    @Column(name = "product_detail") //상품세부설명
     private String productDetail;
 
-    @Column(nullable = false, updatable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "created_at",nullable = false, updatable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Timestamp createdAt;
 
-    @Column(nullable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private Timestamp updateAt;
+    @Column(name="updated_at",nullable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private Timestamp updatedAt;
 
-    @ColumnDefault("N")
+    @ColumnDefault("N") //판매중단 상태인지
     private char status;
 
+    public Long discountPrice(){
+        Long discountPrice = productPrice-(productPrice * (discountRate/100));
+        return discountPrice;
+    }
 }
