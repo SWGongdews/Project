@@ -11,10 +11,7 @@ import java.util.Set;
 @NoArgsConstructor
 @ToString
 @Getter
-<<<<<<< HEAD
-=======
 @Setter
->>>>>>> seungjun
 @Builder
 public class User {
     @Id
@@ -44,16 +41,6 @@ public class User {
     @Column(columnDefinition="VARCHAR(4) default 'Y'")
     private char status;
 
-<<<<<<< HEAD
-
-=======
-//    @ManyToMany
-//    @JoinTable(
-//            name = "user_authority",
-//            joinColumns = {@JoinColumn(name = "userId", referencedColumnName = "userId")},
-//            inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authority_name")})
-//    private Set<Authority> authorities;
->>>>>>> seungjun
 
     public void patch(User user) {
         if(user.getUserName()!=null){
