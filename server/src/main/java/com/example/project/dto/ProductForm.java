@@ -4,9 +4,7 @@ import com.example.project.entity.Product;
 import lombok.AllArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Column;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @ToString

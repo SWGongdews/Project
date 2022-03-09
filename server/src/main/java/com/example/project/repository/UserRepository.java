@@ -1,6 +1,5 @@
 package com.example.project.repository;
 
-import com.example.project.dto.UserForm;
 import com.example.project.entity.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

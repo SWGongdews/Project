@@ -1,13 +1,11 @@
 package com.example.project.repository;
 
 import com.example.project.entity.Review;
-import com.example.project.entity.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public interface ReviewRepository extends CrudRepository<Review, Long> {
 

@@ -1,7 +1,6 @@
 package com.example.project.dto;
 
 import com.example.project.entity.Review;
-import com.example.project.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.ToString;
 import java.sql.Date;
