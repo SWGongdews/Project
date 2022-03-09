@@ -1,0 +1,117 @@
+@import "../../../../../../Styles/common.scss";
+
+
+@mixin h2 {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 65px 0 22px 0;
+  margin: 0;
+}
+
+.delivery-track-info {
+  border-bottom: 1px solid #dddfe1;
+
+  h2 {
+    @include h2
+  }
+
+  .track-info {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid $dark-gray;
+    padding: 12px 0;
+
+    .status {
+      font-weight: bold;
+      width: 480px;
+      text-align: right;
+    }
+    .company {
+      color: $light-gray;
+    }
+    .link {
+      color: $main-purple;
+    }
+  }
+}
+
+.pay-info {
+  h2 {
+    @include h2
+  }
+
+  .pay-info-table {
+    border-top: 1px solid $dark-gray;
+    padding: 12px 0;
+    border-bottom: 1px solid #dddfe1;
+
+    th {
+      width: 148px;
+      padding: 12px 0;
+    }
+    td {
+      width: 580px;
+      text-align: right;
+    }
+  }
+}
+
+.orderer-info {
+  h2 {
+    @include h2
+  }
+
+  .orderer-info-table {
+    border-top: 1px solid $dark-gray;
+    padding: 12px 0;
+    border-bottom: 1px solid #dddfe1;
+
+    th {
+      width: 148px;
+      padding: 12px 0;
+    }
+    td {
+      width: 580px;
+    }
+  }
+}
+
+.delivery-info {
+  h2 {
+    @include h2
+  }
+
+  .delivery-info-table {
+    border-top: 1px solid $dark-gray;
+    padding: 12px 0;
+    border-bottom: 1px solid #dddfe1;
+
+    th {
+      width: 148px;
+      padding: 12px 0;
+    }
+    td {
+      width: 580px;
+    }
+  }
+}
+
+.addition-info {
+  h2 {
+    @include h2
+  }
+
+  .addition-info-table {
+    border-top: 1px solid $dark-gray;
+    padding: 12px 0;
+    border-bottom: 1px solid #dddfe1;
+
+    th {
+      width: 148px;
+      padding: 12px 0;
+    }
+    td {
+      width: 580px;
+    }
+  }
+}

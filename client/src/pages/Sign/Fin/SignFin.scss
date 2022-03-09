@@ -1,0 +1,62 @@
+@import "../../../Styles/common.scss";
+
+
+.fin-container {
+  width: 640px;
+  margin: 20px auto;
+
+  .fin-notice {
+    text-align: center;
+    font-size: 26px;
+    color: #333333;
+    margin: 60px 0 40px 0;
+  }
+
+  .user-info {
+    padding-bottom: 19px;
+    margin-top: 19px;
+    font-size: 16px;
+    border-top: 2px solid #5f0080;
+
+    dl {
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding: 30px 50px;
+    }
+    
+    dt {
+      width: 128px;
+      height: 20px;
+      color: #666666;
+    }
+
+    dd {
+      color: #333333;
+      margin: 0;
+    }
+
+    .id-content, .name-content, .email-content {
+      border-bottom: 1px solid #5f0080;
+    }
+  }
+
+  .btns {
+    button {
+      width: 300px;
+      border: 1px solid #5f0080;
+      height: 60px;
+      margin: 50px 10px;
+    }
+
+    .go-btn {
+      color: #5f0080;
+      background-color: #ffffff;
+    }
+
+    .mypage-btn {
+      color: #ffffff;
+      background-color: #5f0080;
+    }
+  }
+}

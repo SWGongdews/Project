@@ -1,0 +1,131 @@
+@import "../../../../../../Styles/common.scss";
+
+@mixin price-ptag {
+  padding: 0;
+  margin-top: 5px;
+  text-align: left;
+}
+
+
+.order-info {
+  border: 0;
+  padding: 0;
+
+  .order-number {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $medium-gray;
+
+    h3 {
+      font-size: 20px;
+    }
+
+    span {
+      font-size: 12px;
+
+      a {
+        color: $main-purple;
+      }
+    }
+  }
+
+  .order-product {
+    padding: 0 20px;
+    border-bottom: 1px solid #dddfe1;
+
+    .product-img-td {
+      padding: 20px 0;
+      
+      img {
+        width: 60px;
+        height: 80px;
+      }
+    }
+
+    .product-info-td {
+      padding: 20px 0 20px 20px;
+
+      .name {
+        font-size: 16px;
+        font-weight: bold;
+        width: 420px;
+      }
+
+      .sale{
+        @include price-ptag;
+
+        .sale-price {
+          margin-right: 5px;
+        }
+
+        .original-price {
+          text-decoration: line-through;
+          color: $light-gray;
+        }
+      }
+
+      .not-sale {
+        @include price-ptag;
+      }
+
+      .quantity {
+        font-size: 14px;
+
+        &::before {
+          content: '|';
+          color: #DDDDDD;
+          padding: 0 5px;
+        }
+      }
+    }
+
+    .delivery-status-td {
+      font-size: 16px;
+      font-weight: bold;
+      padding-right: 20px;
+    }
+
+    button {
+      background-color: #ffffff;
+      border: 1px solid $main-purple;
+      color: $main-purple;
+      font-size: 12px;
+      border-radius: 8px;
+      width: 100px;
+      height: 40px;
+    }
+  }
+
+  .btns {
+    padding-top: 40px;
+    text-align: center;
+
+    button {
+      background-color: #ffffff;
+      font-weight: bold;
+      font-size: 14px;
+      width: 200px;
+      height: 50px;
+      border-radius: 10px;
+    }
+
+    .all-put-btn {
+      border: 1px solid $main-purple;
+      color: $main-purple;
+      margin-right: 20px;
+    }
+
+    .order-cancel-btn {
+      border: 1px solid #DDDDDD;
+      color: #DDDDDD;
+    }
+  }
+
+  p {
+    padding-top: 40px;
+    text-align: center;
+    font-size: 14px;
+    margin: 0;
+  }
+}
