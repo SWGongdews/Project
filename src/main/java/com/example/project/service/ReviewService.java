@@ -31,10 +31,6 @@ public class ReviewService {
         Review review = dto.toEntity();
         return reviewRepository.Written(review.getUserIdx());
     }
-    public Review statusUpdate(Long reviewidx){
-        Review target = reviewRepository.findById(reviewidx).orElse(null);
-        target.setStatus("N");
-        return reviewRepository.save(target);
-    }
+
 
 }

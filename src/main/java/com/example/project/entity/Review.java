@@ -1,7 +1,6 @@
 package com.example.project.entity;
 
 import lombok.*;
-import org.hibernate.annotations.ColumnDefault;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
@@ -39,8 +38,6 @@ public class Review {
 
     @Column
     private String updatedAt;
-
-    @Column(columnDefinition = "char")
-    @ColumnDefault("N")
-    private String status;
+    @Column
+    private short status;
 }

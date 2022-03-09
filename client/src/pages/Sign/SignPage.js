@@ -93,6 +93,7 @@ function SignPage() {
   // ID 유효성을 확인하는 함수(Keyup)
   const checkValidId = (event) => {
     let regExpID = /[A-Za-z0-9]\w{5,}/;
+    console.log(checkId)
 
     if (regExpID.test(id) && checkId) {
       setCheckId(true)
@@ -199,8 +200,8 @@ function SignPage() {
     }
 
     axios.post("/users/signup", {
-      id: id, password: password, name: name, email: email, phone: phone,
-      postcode: postcode, address: address, gender: gender, birth: birth
+      userID: id, userPassword: password, userName: name, userEmail: email, userPhoneNum: phone,
+      postcode: postcode, userLocation: address, userGender: gender, userBirth: birth
     })
       .then((response) => {
         if (response.statusText === 'OK') {

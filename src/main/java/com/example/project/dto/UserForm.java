@@ -1,9 +1,13 @@
 package com.example.project.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.example.project.entity.User;
-import lombok.AllArgsConstructor;
-import lombok.ToString;
 import lombok.*;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -14,6 +18,7 @@ import lombok.*;
 public class UserForm {
     private Long userIdx;
     private String userID;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String userPassword;
     private String userName;
     private String userEmail;
