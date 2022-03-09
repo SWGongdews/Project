@@ -28,22 +28,33 @@ public class ProductService {
     public List<Product> getAllProduct() {return productRepository.findAll();}
 
     //특정 상품 조회
-    public Product select(ProductForm dto) {
-        Product pro = dto.toEntity();
-        Product choice = productRepository.findProduct(pro.getProductIdx());
+    public String[] select(Long id) {
+        Product choice = productRepository.findProducts(id);
         if(choice == null) {
             return null;
         }
-        return choice;
+        if(choice.getDiscountRate() == 0) {
+            String[] info = {choice.getProductImage(), choice.getProductName(), choice.getProductDetail(), null, null,
+                    choice.getProductPrice().toString(), choice.getProductUnit(), choice.getProductVolume(),
+                    choice.getProductDetail(), choice.getProductExpirationDate(), choice.getProductIdx().toString()};
+            return info;
+        }
+        else{
+
+            String[] info = {choice.getProductImage(), choice.getProductName(), choice.getProductDetail(),
+                    choice.discountPrice().toString(), choice.getDiscountRate().toString(), choice.getProductPrice().toString(),
+                    choice.getProductUnit(), choice.getProductVolume(), choice.getProductDetail(),
+                    choice.getProductExpirationDate(), choice.getProductIdx().toString()};
+            return info;
+        }
 
     }
     //이 상품 어때요?
-    public List<Product> getRandomProduct() {
-        return productRepository.findRamdomProduct();
-    }
+    public List<Product> getRandomProduct() { return productRepository.findRamdomProduct(); }
 
     //놓치면 후회할 가격!
-    public List<Product> getDiscountProduct() {
-        return productRepository.findDiscountProduct();
-    }
+    public List<Product> getDiscountProduct() { return productRepository.findDiscountProduct(); }
+
+    //리뷰 3개 돌파
+    public List<Product> getReviewProduct() { return productRepository.reviewProduct(); }
 }
