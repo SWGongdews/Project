@@ -36,7 +36,7 @@ public class ProductService {
         if(choice.getDiscountRate() == 0) {
             String[] info = {choice.getProductImage(), choice.getProductName(), choice.getProductDetail(), null, null,
                     choice.getProductPrice().toString(), choice.getProductUnit(), choice.getProductVolume(),
-                    choice.getProductDetail(), choice.getProductExpirationDate()};
+                    choice.getProductDetail(), choice.getProductExpirationDate(), choice.getProductIdx().toString()};
             return info;
         }
         else{
@@ -44,20 +44,16 @@ public class ProductService {
             String[] info = {choice.getProductImage(), choice.getProductName(), choice.getProductDetail(),
                     choice.discountPrice().toString(), choice.getDiscountRate().toString(), choice.getProductPrice().toString(),
                     choice.getProductUnit(), choice.getProductVolume(), choice.getProductDetail(),
-                    choice.getProductExpirationDate()};
+                    choice.getProductExpirationDate(), choice.getProductIdx().toString()};
             return info;
         }
 
     }
     //이 상품 어때요?
-    public List<Product> getRandomProduct() {
-        return productRepository.findRamdomProduct();
-    }
+    public List<Product> getRandomProduct() { return productRepository.findRamdomProduct(); }
 
     //놓치면 후회할 가격!
-    public List<Product> getDiscountProduct() {
-        return productRepository.findDiscountProduct();
-    }
+    public List<Product> getDiscountProduct() { return productRepository.findDiscountProduct(); }
 
     //리뷰 3개 돌파
     public List<Product> getReviewProduct() { return productRepository.reviewProduct(); }

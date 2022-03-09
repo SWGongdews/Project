@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Slf4j
@@ -56,10 +57,12 @@ public class ProductController {
             case "후기 3000개 돌파 상품":
                 productList=productService.getReviewProduct();
                 break;
-//            case "지금 가장 핫한 상품":
-//                break;
-//            case "인기 신상품 랭킹":
-//                break;
+            case "지금 가장 핫한 상품":
+                productList=productService.getRandomProduct();
+                break;
+            case "인기 신상품 랭킹":
+                productList=productService.getRandomProduct();
+                break;
 
             default:
                 productList = null;
@@ -69,19 +72,5 @@ public class ProductController {
                 ResponseEntity.status(HttpStatus.OK).body(productList):
                 ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
-
-//    //놓치면 후회할 가격!
-//    @GetMapping("products/sale-items")
-//    public ResponseEntity<Product> getDiscountProduct(){
-//        return productService.getDiscountProduct();
-//    }
-//
-//    //리뷰 3개 이상
-//    @GetMapping("products/good-items")
-//    public ResponseEntity<Product> getReviewProduct(){
-//        return productService.getReviewProduct();
-//    }
-//
-
 
 }
