@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
 public class UserForm {
     private Long userIdx;
     private String userID;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String userPassword;
     private String userName;
     private String userEmail;

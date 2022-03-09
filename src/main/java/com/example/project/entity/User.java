@@ -1,18 +1,24 @@
 package com.example.project.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name="user")
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
 @Getter
 @Setter
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,6 +48,7 @@ public class User {
     private char status;
 
 
+    //유저 정보 수정
     public void patch(User user) {
         if(user.getUserName()!=null){
             this.userName = user.userName;

@@ -1,14 +1,19 @@
 package com.example.project.repository;
 
-import com.example.project.dto.UserForm;
+import org.springframework.data.jpa.repository.EntityGraph;
 import com.example.project.entity.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public interface UserRepository extends CrudRepository<User, Long> {
+
+//    @EntityGraph(attributePaths = "authorities")
+//    Optional<User> findOneWithAuthoritiesByUsername(String userName);
+
     @Override
     ArrayList<User> findAll();
 

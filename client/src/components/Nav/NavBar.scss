@@ -1,0 +1,219 @@
+@import "../../Styles/common.scss";
+
+
+@mixin nav {
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 1050px;
+    height: 35px;
+    margin: 0 auto;
+    margin-top: 16px;
+  }
+
+  .main-menu-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3px;
+    width: 600px;    
+    padding: 0;
+    font-weight: bold;
+    font-size: 16px;
+    position: relative;
+
+    & li, a {
+      text-decoration: none;
+      list-style: none;
+      color: $dark-gray;
+    }
+    .total-menu:hover {
+      color: $main-purple;
+    }
+    .menus:hover {
+      color: $main-purple;
+      text-decoration: underline;
+    }
+    .total-catecory span {
+      margin-right: 10px;
+    }
+  }
+
+  .search {
+    margin: 0;
+
+    .search-form {
+      input[type=search] {
+        border: 0;
+        border-radius: 20px;
+        background-color: $gray-background;
+        padding: 11px;
+        font-size: 12px;
+        width: 250px;
+        margin-top: -5px;
+      }
+      input::placeholder {
+        color: rgb(180, 180, 180);
+      }
+      button {
+        margin-left: -40px;
+        border: none;
+      }
+    }
+  }
+
+  .icons {
+    display: flex;
+    justify-content: space-between;
+    width: 170px;
+  
+    li {
+      list-style: none;
+    }
+    svg {
+      color: $dark-gray;
+      font-size: 28px;
+    }
+  }
+  
+  .hr {
+    border: 0;
+    box-shadow: 0 30px 30px #bdb8b8 inset;
+  }
+}
+
+.nav-container {
+  .top-header {
+    background-color: $main-purple;
+    text-align: center;
+    color: #ffffff;
+    
+    & a {
+      font-size: 14px;
+  
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    & img{
+      height: 42px;
+    }
+  }
+
+  .user-menu {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 5px;
+    width: 1050px;
+    height: 30px;
+    
+    .shipping-guide {
+      & img {
+        width: 121px;
+        height: 22px;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  
+    .list {
+      .list-items {
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        margin-bottom: 0px;
+
+        .login-sucess {
+          span {
+            color: $main-purple;
+            border: 1px solid $main-purple;
+            border-radius: 10px;
+            font-size: 11px;
+            padding: 2px 7px;
+            margin-right: 5px;
+          }
+        }
+    
+        .signup a {
+          color: $main-purple;
+        }
+        .login .service-center a {
+          color: $dark-gray;
+        }
+        & li {
+          color: $dark-gray;
+          
+          &:after {
+            content: '|';
+            color: #D8D8D8;
+          }
+          &:last-child::after {
+            content: '';
+          }
+          & a {
+            text-decoration: none;
+            font-size: 12px;
+            color: $dark-gray;
+            padding: 0 18px;
+            font-weight: bold;
+          }    
+          & strong {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+
+    .login-user-list {
+      list-style: none;
+      font-size: 12px;
+      border: 1px solid #D8D8D8;
+      padding-left: 0;
+      width: 90px;
+      text-align: center;
+      margin-left: 75px;
+     
+      li {
+        padding: 3px 0;
+      }
+    }
+
+    .service-list {
+      list-style: none;
+      font-size: 12px;
+      border: 1px solid #D8D8D8;
+      padding-left: 0;
+      width: 90px;
+      text-align: center;
+      margin-left: 175px;
+     
+      li {
+        padding: 3px 0;
+      }
+    }
+  }
+
+  .logo {
+    & img {
+      display: block;
+      margin: 0px auto;
+      width: 105px;
+      height: 79px;
+    }
+  }
+
+  .fixedNav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    @include nav
+  }
+  
+  .not-fixedNav {
+    @include nav
+  }
+}

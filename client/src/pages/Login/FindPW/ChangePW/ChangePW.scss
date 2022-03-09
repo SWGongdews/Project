@@ -1,0 +1,57 @@
+@import "../../../../Styles/common.scss";
+
+
+.pw-container {
+  padding: 34px 0 50px 0;
+
+  h3 {
+    text-align: center;
+    padding-bottom: 30px;
+    margin: 0;
+    font-weight: bold;
+  }
+
+  .pw-form {
+    width: 380px;
+    margin: 0 auto;
+    padding: 25px 40px;
+
+    label {
+      padding-top: 8px;
+      padding-bottom: 11px;
+    }
+
+    input {
+      width: 312px;
+      height: 45px;
+      padding: 0 11px 1px 15px;
+      border: 1px solid #e3e3e3;
+      margin-bottom: 15px;
+    }
+
+    input::placeholder {
+      color: #ccc;
+      font-size: 16px;
+    }
+
+    .pw-standard {
+      font-size: 12px;
+      color: $main-red;
+    }
+
+    .check-pw {
+      color: $main-red;
+      font-size: 12px;
+    }
+
+    .submit-btn {
+      width: 320px;
+      height: 52px;
+      padding: 0 10px;
+      border: 0;
+      background-color: $main-purple;
+      color: #ffffff;
+      margin: 15px 0;
+    }
+  }
+}

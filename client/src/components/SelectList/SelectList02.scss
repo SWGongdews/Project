@@ -1,0 +1,43 @@
+@import "../../Styles/common.scss";
+
+
+.selection-list2 {
+  h3 {
+    padding: 0 50px 45px 1px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  ul {
+    padding: 0px 0px;
+
+    li {
+      list-style: none;
+      padding: 12px 0 12px 18px;
+      border: 1px solid #f0eeee;
+      color: pink;
+
+      &:hover, &:nth-child(5) {
+        background-color: #fdfafafd;
+
+        a {
+          color: #5f0080;
+          font-weight: bold;
+        }
+      }
+
+      a {
+        text-decoration: none; 
+        color: #666;
+        font-size: 14px;
+
+        &:after {
+          content: ">";
+          font-weight: bold;
+          float: right;
+          padding-right: 15px;
+        }
+      }
+    }
+  }
+}

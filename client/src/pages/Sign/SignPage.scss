@@ -1,0 +1,152 @@
+@import "../../Styles/common.scss";
+
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.sign-container {
+  h3 {
+    text-align: center;
+    font-weight: bold;
+    padding: 35px 0;
+  }
+
+  .sign-content {
+    width: 640px;
+    margin: 0 auto;
+
+    .sub {
+      display: flex;
+      font-size: 12px;
+      padding-left: 550px;
+
+      span {
+        color: #ee6a7b;
+        margin-right: 5px;
+      }
+    }
+
+    .sign-table {
+      border-top: 2px solid black;
+
+      input[type=text],
+      input[type=password],
+      input[type=email], .birth-td div {
+        width: 350px;
+        height: 42px;
+        padding: 0 14px;
+        border: 1px solid #ccc;
+      }
+
+      input::placeholder {
+        color: #ccc;
+        font-size: 14px;
+      }
+      
+      td {
+        padding-top: 20px;
+      }
+
+      th {
+        padding: 29px 0 10px 20px;
+        font-size: 14px;
+        width: 159px;
+        vertical-align: top;
+
+        &:after {
+          content: '*';
+          color: #ee6a7b;
+          font-size: 10px;
+        }
+      }
+
+      .doublecheck-btn {
+        color: $main-purple;
+        border: 1px solid $main-purple;
+        width: 118px;
+        height: 42px;
+        margin-left: 10px;
+        background-color: #ffffff;
+        font-weight: bold;
+        font-size: 14px;
+        border-radius: 5px;
+      }
+      
+      .id-th {
+        width: 139px;
+        height: 45px;
+      }
+      
+      .id-standard, .pw-standard, .pw-confirm {
+        font-size: 12px;
+        color: $main-red;
+      }
+
+      .pw-confirm p {
+        margin: 0;
+      }
+
+      .address-btn {
+        width: 350px;
+        height: 42px;
+        border: 1px solid $main-purple;
+        color: $main-purple;
+        background-color: #ffffff;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+
+      .address-explain {
+        font-size: 12px;
+        padding-top: 10px;
+        color: $medium-gray;
+      }
+
+      .gender-tr {
+        th {
+          &:after {
+            content: '';
+          }
+        }
+
+        .gender-td {
+          .gender-input {
+            width: 350px;
+            display: flex;
+            justify-content: space-between;
+          }
+  
+          label {
+            padding-left: 10px;
+          }
+        }
+      }
+
+      .birth-tr {
+        padding-bottom: 100px;
+
+        input[type=number] {
+          width: 100px;
+          height: 40px;
+        }
+
+        th {
+          &:after {
+          content: '';
+          }
+        }
+      }
+    }
+
+    .submit-btn {
+      background-color: $main-purple;
+      color: #ffffff;
+      width: 238px;
+      height: 54px;
+      border: 1px solid $main-purple;
+      margin: 100px 0 70px 200px;
+    }
+  }
+}
