@@ -51,4 +51,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
     //수정할 회원 정보 조회-> id로 조회
     @Query("select u from User u where u.userID = :id")
     User findUser(@Param("id") String id);
+
+    @Query("select u from User u where u.userEmail = :email")
+    User findUserByEmail(@Param("email") String email);
 }

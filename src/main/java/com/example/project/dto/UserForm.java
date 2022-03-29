@@ -2,6 +2,9 @@ package com.example.project.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.example.project.entity.User;
+import lombok.AllArgsConstructor;
+import lombok.ToString;
+import java.util.Set;
 import lombok.*;
 
 import javax.validation.constraints.NotNull;
