@@ -127,7 +127,7 @@ function SignPage() {
   const doubleCheckID = (event) => {
     event.preventDefault();
 
-    axios.post('/users/duplicationidcheck', { id: id })
+    axios.post('/users/duplicationidcheck', { userID: id })
       .then((response) => {
         if (response.data === true) {
           setCheckId(true)
@@ -143,7 +143,7 @@ function SignPage() {
   const doubleCheckEmail = (event) => {
     event.preventDefault();
 
-    axios.post('/users/duplicationemailcheck', { email: email })
+    axios.post('/users/duplicationemailcheck', { userEmail: email })
       .then((response) => {
         if (response.data === true) {
           setCheckEmail(true)

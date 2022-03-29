@@ -22,13 +22,15 @@ public class Product {
     @Column(name = "product_name") //상품명
     private String productName;
     @Column(name = "product_image") //상품이미지
-    private String productImage;
+    private String productUrl;
     @Column(name = "product_price") //상품가격
     private Long productPrice;
     @Column(name = "product_category") //상품카테고리
     private String productCategory;
     @Column(name = "discount_rate") //할인율
     private Long discountRate;
+    @Column(name = "discount_price") //할인가격
+    private Long discountPrice;
     @Column(name = "product_unit") //판매 단위
     private String productUnit;
     @Column(name = "product_volume") //판매 용량
@@ -52,5 +54,24 @@ public class Product {
     public Long discountPrice(){
         Long discountPrice = productPrice-(productPrice * (discountRate/100));
         return discountPrice;
+    }
+
+    public Product(String productName, String productUrl, Long productPrice, String productCategory, Long discountRate,
+                   String productUnit, String productVolume, String productDelivery, String productExpirationDate,
+                   String productDetail, Timestamp createdAt, Timestamp updatedAt, char status){
+        this.productName = productName;
+        this.productUrl = productUrl;
+        this.productPrice = productPrice;
+        this.productCategory = productCategory;
+        this.discountRate = discountRate;
+        this.discountPrice = this.productPrice-(this.productPrice * (this.discountRate/100));
+        this.productUnit = productUnit;
+        this.productVolume = productVolume;
+        this.productDelivery = productDelivery;
+        this.productExpirationDate = productExpirationDate;
+        this.productDetail = productDetail;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.status = status;
     }
 }

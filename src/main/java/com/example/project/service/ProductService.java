@@ -34,14 +34,14 @@ public class ProductService {
             return null;
         }
         if(choice.getDiscountRate() == 0) {
-            String[] info = {choice.getProductImage(), choice.getProductName(), choice.getProductDetail(), null, null,
+            String[] info = {choice.getProductUrl(), choice.getProductName(), choice.getProductDetail(), null, null,
                     choice.getProductPrice().toString(), choice.getProductUnit(), choice.getProductVolume(),
                     choice.getProductDetail(), choice.getProductExpirationDate(), choice.getProductIdx().toString()};
             return info;
         }
         else{
 
-            String[] info = {choice.getProductImage(), choice.getProductName(), choice.getProductDetail(),
+            String[] info = {choice.getProductUrl(), choice.getProductName(), choice.getProductDetail(),
                     choice.discountPrice().toString(), choice.getDiscountRate().toString(), choice.getProductPrice().toString(),
                     choice.getProductUnit(), choice.getProductVolume(), choice.getProductDetail(),
                     choice.getProductExpirationDate(), choice.getProductIdx().toString()};
@@ -50,7 +50,7 @@ public class ProductService {
 
     }
     //이 상품 어때요?
-    public List<Product> getRandomProduct() { return productRepository.findRamdomProduct(); }
+        public List<Product> getRandomProduct() { return productRepository.findRamdomProduct(); }
 
     //놓치면 후회할 가격!
     public List<Product> getDiscountProduct() { return productRepository.findDiscountProduct(); }

@@ -13,10 +13,11 @@ import java.time.LocalDateTime;
 public class ProductForm {
     private Long productIdx;
     private String productName;
-    private String productImage;
+    private String productUrl;
     private Long productPrice;
     private String productCategory;
     private Long discountRate;
+    private Long discountPrice = productPrice-(productPrice * (discountRate/100));
     private String productUnit;
     private String productVolume;
     private String productDelivery;
@@ -27,7 +28,7 @@ public class ProductForm {
     private char status;
 
     public Product toEntity(){
-        return new Product(null, productName, productImage, productPrice, productCategory, discountRate, productUnit,
-                productVolume, productDelivery, productExpirationDate, productDetail, createdAt, updatedAt, status);
+        return new Product(null, productName, productUrl, productPrice, productCategory, discountRate, discountPrice,
+                productUnit, productVolume, productDelivery, productExpirationDate, productDetail, createdAt, updatedAt, status);
     }
 }
