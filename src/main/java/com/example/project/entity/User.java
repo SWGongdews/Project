@@ -2,13 +2,9 @@ package com.example.project.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import java.sql.Time;
-import java.sql.Timestamp;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -24,7 +20,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="user_idx")
     private Long userIdx;
-    @Column(nullable = false, name="userid")
+    @Column(nullable = false, name="user_id")
     private String userID;
     @Column(nullable = false, name="user_password")
     private String userPassword;
@@ -44,18 +40,16 @@ public class User {
     private String createdAt;
     @Column(name="update_at")
     private String updateAt;
-    @Column(columnDefinition="VARCHAR(4) default 'Y'")
+    @ColumnDefault("Y")
+    @Column(name="status")
     private char status;
-//
-//    @Column(name = "activated")
-//    private boolean activated;
-//
-//    @ManyToMany
-//    @JoinTable(
-//            name = "user_authority",
-//            joinColumns = {@JoinColumn(name = "user_idx", referencedColumnName = "user_idx")},
-//            inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authority_name")})
-//    private Set<Authority> authorities;
+
+    @OneToMany
+    @JoinTable(
+            name = "user_authority",
+            joinColumns = {@JoinColumn(name = "user_idx", referencedColumnName = "user_idx")},
+            inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authority_name")})
+    private Set<Authority> authorities;
 
     //유저 정보 수정
     public void patch(User user) {
